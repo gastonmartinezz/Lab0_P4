@@ -1,4 +1,4 @@
-#include ".h/DTExpe.h";
+#include ".h/DTExpe.h"
 
 string DTExpe::getCodigoReserva() {
     return this->codigoReserva;
