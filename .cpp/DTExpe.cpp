@@ -1,4 +1,4 @@
-#include ".h/DTExpe.h";
+
 #include ".h/DTExpe.h"
 
 DTExpe::DTExpe(string codigoReserva, string descripcion, DTFecha fecha, set<string> turistas) : 
