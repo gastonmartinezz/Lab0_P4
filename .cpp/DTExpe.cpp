@@ -1,5 +1,8 @@
 #include ".h/DTExpe.h"
 
+DTExpe::DTExpe(string codigoReserva, string descripcion, DTFecha fecha, set<string> turistas) : 
+codigoReserva(codigoReserva), descripcion(descripcion), fecha(fecha), turistas() {}
+
 string DTExpe::getCodigoReserva() {
     return this->codigoReserva;
 }
@@ -9,9 +12,5 @@ string DTExpe::getDescripcion() {
 }
 
 DTFecha DTExpe::getFecha() {
-    int dia = this->fecha.getDia();
-    int mes = this->fecha.getMes();
-    int anio = this->fecha.getAnio();
-
-    //return dia, mes anio;
+    return fecha;
 }
