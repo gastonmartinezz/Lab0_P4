@@ -10,6 +10,20 @@ Experiencia::Experiencia(string codReserva, string descripcion, int precio, DTFe
    participantes = {};
 }
 
+DTExpe Experiencia::getDT(){
+    //armamos una lista de nombres
+    set<string> listaTuristas;
+    set<Turista*>::iterator iter;
+    //recorremos los turistas participantes y agregamos sus nombres a la lista
+    for(iter = participantes.begin(); iter != participantes.end(); iter++){
+        listaTuristas.insert((*iter)->getNombre());
+    }
+    //creamos el datavalue
+    DTExpe expe = DTExpe(codRes, desc, fecha, listaTuristas);
+
+    return expe;
+}
+
 string Experiencia::getCodigoReserva(){
     return codRes;
 }

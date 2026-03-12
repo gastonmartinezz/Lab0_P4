@@ -23,8 +23,7 @@ class Experiencia {
         Experiencia(string codReserva, string descripcion, int precio, DTFecha fecha);
         virtual ~Experiencia();
         virtual float calcularCosto() = 0;
-        virtual std::string getCodigoReserva() = 0;
-        //DTExpe getDT();
+        DTExpe getDT();
         void agregarTurista(Turista* turista);
         void eliminarTurista(Turista* turista);
 
