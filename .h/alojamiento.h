@@ -1,0 +1,19 @@
+using namespace std;
+
+#include <string>
+#include "DTFecha.h"
+#include "experiencia.h"
+#include "tipoRegimen.h"
+
+class Alojamiento: public Experiencia {
+    private:
+        string hotel;
+        TipoRegimen regimen;
+        int cantNoches;
+        Alojamiento();
+
+    public:
+        Alojamiento(string codReserva, string descripcion, int precioBase, DTFecha fecha, string hotel, TipoRegimen regimen, int cantNoches);
+        ~Alojamiento();
+        float calcularCosto();
+};
