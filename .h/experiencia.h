@@ -5,7 +5,6 @@
 using namespace std;
 
 #include <set>
-#include "DTFecha.h"
 #include "DTExpe.h"
 #include "turista.h"
 

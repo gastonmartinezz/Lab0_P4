@@ -1,4 +1,4 @@
-#include ".h\experiencia.h"
+#include "experiencia.h"
 
 using namespace std;
 

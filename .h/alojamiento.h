@@ -4,7 +4,6 @@
 using namespace std;
 
 #include <string>
-#include "DTFecha.h"
 #include "experiencia.h"
 #include "tipoRegimen.h"
 

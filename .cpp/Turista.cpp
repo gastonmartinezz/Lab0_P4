@@ -1,6 +1,5 @@
-#include "Experiencia.h"
-#include "Turista.h"
-#include "DTFecha.h"
+#include "experiencia.h"
+#include "turista.h"
 #include <iostream>
 
 // usamos el espacio de nombres std para evitar escribir std:: antes de cada uso de string, set, etc.

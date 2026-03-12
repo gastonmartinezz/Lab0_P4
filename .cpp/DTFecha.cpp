@@ -1,5 +1,12 @@
-#include ".h\DTFecha.h"
+#include "DTFecha.h"
 
+//constructor por defecto
+DTFecha::DTFecha(){
+    dia = 0;
+    mes = 0;
+    anio = 0;
+}
+//constructor común
 DTFecha::DTFecha(int dia, int mes, int anio) {
     this->dia = dia;
     this->mes = mes;
