@@ -5,6 +5,7 @@
 
 #include "experiencia.h"
 #include "alojamiento.h"
+#include "eventoCultural.h"
 #include "turista.h"
 #include "DTExpe.h"
 #include "DTFecha.h"
@@ -45,9 +46,7 @@ void parte_b(){
 }
 
 void parte_c(){
-    /*
-    EventoCultural* evento = new EventoCultural("ECP1346", "Danza en el Solis", 10, DTFecha(29,10,2025), "Teatro Solis", true); 
-    */
+    EventoCultural* evento = new EventoCultural("ECP1346", "Danza en el Solis", 10, DTFecha(29,10,2025), "Teatro Solis", true);
 }
 
 void parte_d(){
