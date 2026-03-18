@@ -41,3 +41,6 @@ build/Turista.o: $(SRC_DIR)/Turista.cpp
 
 clean:
 	rm -f build/*.o output
+
+valgrind: output
+	valgrind --leak-check=full --track-origins=yes ./output
