@@ -78,10 +78,50 @@ void parte_e()
 
 void parte_f()
 {
+    list<Turista*>::iterator it;
+
+    for(it = turistas.begin(); it != turistas.end(); it++){
+        
+        cout << (*it)->toString() << endl;
+
+    }
 }
 
 void parte_g()
 {
+    map<string,Turista*>::iterator itTur;
+    map<string,Experiencia*>::iterator itExp;
+
+    //asociamos las experiencias a Vanesa Castro
+    itTur = map_turistas.find("4.951.278-9");
+    
+    itExp = map_experiencias.find("ALX5489");
+    (*itTur).second->agregarExperiencia((*itExp).second);
+    (*itExp).second->agregarTurista((*itTur).second);
+
+    itExp = map_experiencias.find("ALJ4789");
+    (*itTur).second->agregarExperiencia((*itExp).second);
+    (*itExp).second->agregarTurista((*itTur).second);
+
+    itExp = map_experiencias.find("TGR3257");
+    (*itTur).second->agregarExperiencia((*itExp).second);
+    (*itExp).second->agregarTurista((*itTur).second);
+
+    itExp = map_experiencias.find("ECP1346");
+    (*itTur).second->agregarExperiencia((*itExp).second);
+    (*itExp).second->agregarTurista((*itTur).second);
+
+    //ahora asociamos las experiencias a Karen Santos
+    itTur = map_turistas.find("1.535.442-0");
+
+    itExp = map_experiencias.find("TGO4657");
+    (*itTur).second->agregarExperiencia((*itExp).second);
+    (*itExp).second->agregarTurista((*itTur).second);
+
+    itExp = map_experiencias.find("TGR3257");
+    (*itTur).second->agregarExperiencia((*itExp).second);
+    (*itExp).second->agregarTurista((*itTur).second);
+
 }
 
 void parte_h()
