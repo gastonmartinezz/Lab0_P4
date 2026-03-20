@@ -37,6 +37,7 @@ public:
 
     // Gestión de la relación
     void agregarExperiencia(Experiencia *exp);
+    void eliminarExperiencia(string codReserva);
 
     ~Turista();
 };
