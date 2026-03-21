@@ -64,6 +64,7 @@ void parte_c()
 
 void parte_d()
 {
+    // La letra del Lab pide el mismo codigo que para la parte k
 }
 
 void parte_e()
@@ -160,11 +161,30 @@ void parte_i()
 
 void parte_j()
 {
+    // Buscamos a Karen Santos dentro de los Turistas
+    map<string,Turista*>::iterator itTur;
+    itTur = map_turistas.find("1.535.442-0");
+    // Chequeamos que se haya encontrado
+    if (itTur != map_turistas.end()) {
+        // Buscamos las experiencias asociadas a Karen Santos, posteriores al 10/10/2020
+        DTFecha desde(10, 10, 2020);
+        set<string> experienciasDesde = (*itTur).second->listarExperiencias(&desde, 0, 1000);
+        // Imprimimos las experiencias encontradas
+        for (set<string>::iterator it = experienciasDesde.begin(); it != experienciasDesde.end(); it++) {
+            cout << *it << endl;
+        }
+    }
 }
 
 void parte_k()
 {
+    // Recorremos todas las Experiencias, e imprimimos el resultado de getDT() para cada uno
+    list<Experiencia*>::iterator it;
+    for (it = experiencias.begin(); it != experiencias.end(); it++) {
+        cout << (*it)->getDT() << endl;
+    }
 }
+
 
 void cleanUp()
 {
