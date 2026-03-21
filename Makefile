@@ -1,4 +1,4 @@
-OPC = -g -Wall -std=c++11 -I.
+OPC = -g -Wall -std=c++11 -I. -I./.h
 CXX = g++
 
 # Directorio de fuentes (si los .cpp están en la misma carpeta que el Makefile, usa .)
