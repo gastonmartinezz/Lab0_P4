@@ -1,7 +1,8 @@
-OPC = -g -Wall -std=c++11 -I.h
+OPC = -g -Wall -std=c++11 -I.
 CXX = g++
 
-SRC_DIR = .cpp
+# Directorio de fuentes (si los .cpp están en la misma carpeta que el Makefile, usa .)
+SRC_DIR = .
 
 OBJ = build/main.o \
       build/DTFecha.o \
@@ -12,35 +13,23 @@ OBJ = build/main.o \
       build/TourGuiado.o \
       build/Turista.o
 
-output: $(OBJ)
+# Regla principal: Crea la carpeta build, compila los objetos y luego el ejecutable
+output: prepare $(OBJ)
 	$(CXX) $(OBJ) -o output
+
+# Crea la carpeta build si no existe
+prepare:
+	mkdir -p build
 
 valgrind: output
 	valgrind --leak-check=full --track-origins=yes ./output
 
+# Reglas de compilación
 build/main.o: main.cpp
 	$(CXX) $(OPC) -c main.cpp -o build/main.o
 
-build/DTFecha.o: $(SRC_DIR)/DTFecha.cpp
-	$(CXX) $(OPC) -c $(SRC_DIR)/DTFecha.cpp -o build/DTFecha.o
-
-build/DTExpe.o: $(SRC_DIR)/DTExpe.cpp
-	$(CXX) $(OPC) -c $(SRC_DIR)/DTExpe.cpp -o build/DTExpe.o
-
-build/Alojamiento.o: $(SRC_DIR)/Alojamiento.cpp
-	$(CXX) $(OPC) -c $(SRC_DIR)/Alojamiento.cpp -o build/Alojamiento.o
-
-build/EventoCultural.o: $(SRC_DIR)/EventoCultural.cpp
-	$(CXX) $(OPC) -c $(SRC_DIR)/EventoCultural.cpp -o build/EventoCultural.o
-
-build/Experiencia.o: $(SRC_DIR)/Experiencia.cpp
-	$(CXX) $(OPC) -c $(SRC_DIR)/Experiencia.cpp -o build/Experiencia.o
-
-build/TourGuiado.o: $(SRC_DIR)/TourGuiado.cpp
-	$(CXX) $(OPC) -c $(SRC_DIR)/TourGuiado.cpp -o build/TourGuiado.o
-
-build/Turista.o: $(SRC_DIR)/Turista.cpp
-	$(CXX) $(OPC) -c $(SRC_DIR)/Turista.cpp -o build/Turista.o
+build/%.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(OPC) -c $< -o $@
 
 clean:
-	rm -f build/*.o output
+	rm -rf build output
