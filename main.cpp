@@ -147,21 +147,27 @@ void parte_h()
 
 void parte_i()
 {
-    map<string,Experiencia*>::iterator itExp;
+    map<string, Experiencia*>::iterator itExp;
     itExp = map_experiencias.find("TGR3257");
 
-    if (itExp != map_experiencias.end()) //Me aseguro de que exista
+    if (itExp != map_experiencias.end())
     {
-        set<Turista*>::iterator it;
-        for (it = itExp->second->getTuristas().begin(); it != itExp->second->getTuristas().end(); it++)
+        Experiencia* exp = itExp->second;
+        string codigo = exp->getCodigoReserva();
+
+        set<Turista*> turistasAsociados = (*exp).getTuristas();
+
+        for (set<Turista*>::iterator it = turistasAsociados.begin();
+             it != turistasAsociados.end();
+             ++it)
         {
-            (*it)->eliminarExperiencia(itExp->second->getCodigoReserva());
+            (*it)->eliminarExperiencia(codigo);
         }
 
-        experiencias.remove(itExp->second);
+        delete exp;
+        experiencias.remove(exp);
         map_experiencias.erase(itExp);
-        //(*itExp).second->~Experiencia();
-        delete itExp->second;
+        
     }
 }
 
@@ -190,6 +196,7 @@ void parte_k()
         DTExpe exp = (*it)->getDT();
         cout << exp << endl;
     }
+
 }
 
 
